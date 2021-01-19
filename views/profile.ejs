@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <%- include ("layout.ejs") %>
+        <br>
+
+        <div class="container p-5">
+            <h3 class="p-2">Profile</h3>
+            <div class="col-sm-12 bg-light border rounded py-3 ">
+
+                <% p.forEach(function (p){ %>
+                    <div class="form-group">
+                        <label for="fname">First Name</label>
+                        <p>:
+                            <%= p.fname %>
+                        </p>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="lname">Last Name</label>
+                        <p>:
+                            <%= p.lname %>
+                        </p>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <p>:
+                            <%= p.phone %>
+                        </p>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <p>:
+                            <%= p.email %>
+                        </p>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="citizenId">Citizen ID</label>
+                        <p>:
+                            <%= p.citizenId %>
+                        </p>
+                    </div>
+                    <% }) %>
+
+            </div>
+            <br>
+            <% if (!locals.editProfileError) { %>
+                <a href="/profile/editProfile" type="submit" class="btn btn-outline-secondary me-3 " style="float: right;">Edit</a>
+                <% } %>
+
+        </div>
+</body>
+
+</html>
