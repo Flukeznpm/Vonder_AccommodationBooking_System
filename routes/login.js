@@ -6,7 +6,7 @@ const db = require('../config/db');
 
 const ifLogin = (req, res, next) => {
     if (req.session.isLoggedIn) {
-        return res.redirect('/home');
+        return res.redirect('/room');
     }
     next();
 };
@@ -18,9 +18,9 @@ const ifNotLogin = (req, res, next) => {
     next();
 };
 
-router.get('/', ifNotLogin, function (req, res) {
+router.get('/', ifNotLogin, ifLogin, function(req, res) {
     var check_user_session = { username: req.session.username };
-    db.connect(function (err) {
+    db.connect(function(err) {
         if (err) throw (err);
         var Db = db.db('AccommodationBookingDb').collection('User');
         Db.find(check_user_session).toArray().then((result) => {
@@ -32,8 +32,8 @@ router.get('/', ifNotLogin, function (req, res) {
     });
 });
 
-router.post('/', ifLogin, function (req, res) {
-    db.connect(function (err) {
+router.post('/', ifLogin, function(req, res) {
+    db.connect(function(err) {
         if (err) throw (err);
 
         var Db = db.db('AccommodationBookingDb').collection('User');
