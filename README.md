@@ -8,7 +8,7 @@
 ##### API
 * http://localhost:3000/login
 * http://localhost:3000/register
-* http://localhost:3000/proifle
+* http://localhost:3000/profile
 * http://localhost:3000/profile/editProfile
 * http://localhost:3000/room
 * http://localhost:3000/booking
