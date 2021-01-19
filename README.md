@@ -1,4 +1,4 @@
-## Vonder_AccommodationBooking_System
+## AccommodationBooking System
 
 ##### PORT : http://localhost:3000/
 
