@@ -21,12 +21,14 @@ const registerRouter = require('./routes/register');
 const profileRouter = require('./routes/profile');
 const roomRouter = require('./routes/room');
 const logoutRouter = require('./routes/logout');
+const bookingRouter = require('./routes/booking');
 
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/profile', profileRouter);
 app.use('/room', roomRouter);
 app.use('/logout', logoutRouter);
+app.use('/booking', bookingRouter)
 
 app.use((req, res, next) => {
     res.status(404).send('<h1>No path of your request!</h1>')
