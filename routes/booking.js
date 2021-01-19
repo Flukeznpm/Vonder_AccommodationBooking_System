@@ -3,7 +3,14 @@ const { ObjectId } = require('mongodb');
 const router = express.Router();
 const db = require('../config/db');
 
-router.get('/', async function(req, res) {
+const ifNotLogin = (req, res, next) => {
+    if (!req.session.isLoggedIn) {
+        return res.render('login');
+    }
+    next();
+};
+
+router.get('/',ifNotLogin, async function(req, res) {
     const bookingList = [];
 
     await db.connect(async function(err) {

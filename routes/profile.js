@@ -3,7 +3,14 @@ const router = express.Router();
 const db = require('../config/db');
 const { check, validationResult } = require('express-validator');
 
-router.get('/', async function(req, res) {
+const ifNotLogin = (req, res, next) => {
+    if (!req.session.isLoggedIn) {
+        return res.render('login');
+    }
+    next();
+};
+
+router.get('/', ifNotLogin,async function(req, res) {
     db.connect(async function(err) {
         if (err) throw (err);
 
@@ -19,7 +26,7 @@ router.get('/', async function(req, res) {
             if (Username == usernamee) {
                 res.render('profile', { p: result });
             } else {
-                return Promise.reject('You can not edit othe profile.').catch(err => {
+                return Promise.reject('You can not edit other profile.').catch(err => {
                     const error = [err];
                     console.log(error);
                     res.render('profile', {
@@ -32,7 +39,7 @@ router.get('/', async function(req, res) {
     });
 });
 
-router.get('/editProfile', function(req, res) {
+router.get('/editProfile', ifNotLogin ,function(req, res) {
     db.connect(async function(err) {
         if (err) throw (err);
 
@@ -48,7 +55,7 @@ router.get('/editProfile', function(req, res) {
             if (Username == usernamee) {
                 res.render('editProfile', { p });
             } else {
-                return Promise.reject('You can not edit othe profile.').catch(err => {
+                return Promise.reject('You can not edit other profile.').catch(err => {
                     const error = [err];
                     console.log(error);
                     res.render('editProfile', {

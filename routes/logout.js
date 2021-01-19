@@ -2,7 +2,13 @@ const express = require('express');
 const { logout } = require('../config/db');
 const router = express.Router();
 
-router.get('/', function (req, res) {
+const ifNotLogin = (req, res, next) => {
+    if (!req.session.isLoggedIn) {
+        return res.render('login');
+    }
+    next();
+};
+router.get('/', ifNotLogin , function (req, res) {
     req.session = null;
     res.redirect('/login');
 });
