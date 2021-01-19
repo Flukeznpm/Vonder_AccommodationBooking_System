@@ -1,6 +1,6 @@
 ## AccommodationBooking System
 
-##### PORT : http://localhost:3000/
+##### PORT : 3000
 
 ##### DB : MongoDB 
 * (MongoDB Compass: mongodb+srv://nattapong:11501112@sandbox.2ng5o.mongodb.net/test)
