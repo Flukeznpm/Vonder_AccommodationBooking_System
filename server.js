@@ -28,14 +28,14 @@ app.use('/register', registerRouter);
 app.use('/profile', profileRouter);
 app.use('/room', roomRouter);
 app.use('/logout', logoutRouter);
-app.use('/booking', bookingRouter)
+app.use('/booking', bookingRouter);
 
 app.use((req, res, next) => {
-    res.status(404).send('<h1>No path of your request!</h1>')
+    res.status(404).send('<h1>No path of your request!</h1>');
 });
 
 app.listen(port, () => {
-    console.log(`>>> Server is running on port : ${port} <<<`)
+    console.log(`>>> Server is running on port : ${port} <<<`);
 });
 
 module.exports = app;
