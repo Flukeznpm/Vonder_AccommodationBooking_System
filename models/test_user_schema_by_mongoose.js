@@ -1,7 +1,8 @@
-const db = require('../config/test_db_by_mongoose');
+// const db = require('../config/test_db_by_mongoose');
+const mongoose = require('mongoose');
 const modelName = 'User';
 
-var user_schema = db.Schema(
+var user_schema = mongoose.Schema(
     {
         username: {
             type: String,
@@ -29,11 +30,15 @@ var user_schema = db.Schema(
             unique: true
         }
     },
+    // {
+    //     timestamps: true,
+    //     versionKey: false
+    // },
     {
         collection: 'User'
     }
 );
 
-const user = db.model(modelName, user_schema);
+const user = mongoose.model(modelName, user_schema);
 
 module.exports = user;

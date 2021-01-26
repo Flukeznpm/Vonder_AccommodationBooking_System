@@ -16,6 +16,20 @@ app.use(cookieSession({
     maxAge: 4800 * 1000
 }));
 
+const mongoose = require('mongoose');
+const uri = 'mongodb+srv://nattapong:11501112@sandbox.2ng5o.mongodb.net/AccommodationBookingDb?retryWrites=true&w=majority';
+
+mongoose.Promise = global.Promise;
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log("[SUCCESS] : Connected to the database.");
+    },
+        (error) => {
+            console.log("[FAILED] : Error to connected database." + error);
+            process.exit();
+        }
+    );
+
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const profileRouter = require('./routes/profile');
@@ -30,7 +44,7 @@ app.use('/profile', profileRouter);
 app.use('/room', roomRouter);
 app.use('/logout', logoutRouter);
 app.use('/booking', bookingRouter);
-app.use('/TestUserByMongoose', TestUserByMongoose);
+app.use('/TestMongoose', TestUserByMongoose);
 
 app.use((req, res, next) => {
     res.status(404).send('<h1>No path of your request!</h1>');

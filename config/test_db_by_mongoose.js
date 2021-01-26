@@ -3,7 +3,7 @@ const uri = 'mongodb+srv://nattapong:11501112@sandbox.2ng5o.mongodb.net/Accommod
 
 mongoose.Promise = global.Promise;
 
-const database = mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+const db = mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log("[SUCCESS] : Connected to the database.");
     },
@@ -13,4 +13,4 @@ const database = mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopolo
         }
     );
 
-module.exports = database; 
+module.exports = db; 
