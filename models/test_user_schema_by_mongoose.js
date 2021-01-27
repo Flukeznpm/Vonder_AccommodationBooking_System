@@ -30,10 +30,10 @@ var user_schema = mongoose.Schema(
             unique: true
         }
     },
-    // {
-    //     timestamps: true,
-    //     versionKey: false
-    // },
+    {
+        timestamps: true,
+        versionKey: false
+    },
     {
         collection: 'User'
     }
