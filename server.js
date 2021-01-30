@@ -29,6 +29,9 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
             process.exit();
         }
     );
+mongoose.connection.on('error', err => {
+    console.error('MongoDB error', err)
+});
 
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
