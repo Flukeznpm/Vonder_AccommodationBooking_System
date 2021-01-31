@@ -30,7 +30,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
         }
     );
 mongoose.connection.on('error', err => {
-    console.error('MongoDB error', err)
+    console.error('MongoDB error', err);
 });
 
 const loginRouter = require('./routes/login');
