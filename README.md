@@ -3,7 +3,7 @@
 ##### PORT : 3000
 
 ##### DB : MongoDB 
-* (MongoDB Compass: mongodb+srv://nattapong:11501112@sandbox.2ng5o.mongodb.net/test)
+* (MongoDB Compass: mongodb+srv://<USERNAME>:<PASSWORD>@sandbox.2ng5o.mongodb.net/test)
 
 ##### API
 * http://localhost:3000/login
