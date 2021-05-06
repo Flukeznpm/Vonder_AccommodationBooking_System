@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const uri = 'mongodb+srv://nattapong:11501112@sandbox.2ng5o.mongodb.net/AccommodationBookingDb?retryWrites=true&w=majority';
+const uri = "";
 
 mongoose.Promise = global.Promise;
 
